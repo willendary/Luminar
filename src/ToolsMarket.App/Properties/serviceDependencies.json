@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "mssql2": {
+      "ignored": "true",
+      "type": "mssql",
+      "connectionId": "ToolsMarketConn"
+    },
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "EcommerceConnectionString"
+    }
+  }
+}

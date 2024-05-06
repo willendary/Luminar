@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="vh-100" style="overflow-x: hidden">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] Show de Ferramentas</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ToolsMarket.App.styles.css" asp-append-version="true" />
+    <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+          integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+          integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script src="~/ckeditor/config.js"></script>
+</head>
+
+<body class="d-flex flex-column" style="position: relative">
+    <header>
+        <div class="container header pt-4 pb-4 d-flex flex-row justify-content-between align-items-center">
+            <div class="logo">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img style="width: 150px"
+                         src="~/images/logo.png">
+                </a>
+            </div>
+            <div class="searchbox" style="width: 100%">
+                <div class="input-group d-flex justify-content-center align-items-center">
+                    <div class="form-outline" style="max-width: 400px; width: 80%">
+                        <input type="search" id="form" class="form-control" style="font-size: .8rem; line-height: 1.8"
+                               placeholder="Pesquise em toda a loja" />
+                    </div>
+                    <button type="submit" class="btn text-white outline-none" style="background-color: #fdb827;">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="options-header d-flex flex-row">
+                <partial name="_LoginPartial" />
+            </div>
+            <vc:carrinho-compras></vc:carrinho-compras>
+        </div>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow d-flex flex-column p-0">
+            <div class="container-fluid w-100 pt-2 pb-2" style="background-color: #fdb827">
+                <div class="container">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex w-80">
+                        <ul class="navbar-nav w-100 d-flex justify-content-between align-content-center">
+                            <li class="nav-item">
+                                <a class="nav-link text-black fw-bold text-uppercase" asp-area="" asp-controller="Produtos" asp-action="Manuais">Ferramentas Manuais</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-link text-black fw-bold text-uppercase" asp-area="" asp-controller="Produtos" asp-action="Eletricos">Ferramentas Elétricas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link nav-link text-black fw-bold text-uppercase" asp-area="" asp-controller="Produtos" asp-action="Pneumaticos">Pneumáticas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-black fw-bold text-uppercase" asp-area="" asp-controller="Produtos" asp-action="Automotivos">Automotivas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-black fw-bold text-uppercase" asp-area="" asp-controller="Produtos" asp-action="Acessorios">Acessórios</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-black fw-bold text-uppercase" asp-area="" asp-controller="Produtos" asp-action="Utilidades">Casa e Utilidades</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid p-0" style="overflow-x: hidden;">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <footer>
+        <div class="container-fluid">
+            <div class="container">
+                <div class="link-group">
+                    <ul class="navbar-nav">
+                        <h6>Categorias</h6>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Produtos" asp-action="Manuais">Ferramentas Manuais</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Produtos" asp-action="Eletricos">Ferramentas Elétricas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Produtos" asp-action="Pneumaticos">Pneumáticas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Produtos" asp-action="Automotivos">Automotivas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Produtos" asp-action="Acessorios">Acessórios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Produtos" asp-action="Utilidades">Casa e Utilidades</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="link-group">
+                    <ul class="navbar-nav">
+                        <h6>Institucional</h6>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Contato" asp-action="Index">Fale Conosco</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Sobre" asp-action="Index">Sobre a Loja</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Politica" asp-action="Index">
+                                Política de
+                                Envio
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Troca" asp-action="Index">
+                                Trocas e
+                                Devoluções
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Termos" asp-action="Index">Termos de Uso</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Privacidade" asp-action="Index">
+                                Política de
+                                Privacidade
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="link-group flex-column">
+                    <div>
+                        <ul class="navbar-nav">
+                            <h6>Atendimento</h6>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="" asp-action="">(61) 3333-0000</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="" asp-action="">(61) 99999-0000</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="" asp-action="">
+                                    Email:
+                                    contato@showferramentas.com.br
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="navbar-nav mt-3">
+                            <h6>Horário de Atendimento:</h6>
+                            <p style="font-size: .8rem; line-height: 1;">Segunda à Sexta de 08h às 18h</p>
+                            <p style="font-size: .8rem; line-height: 1;">Sábado de 08h às 12h</p>
+                        </ul>
+                        <button type="button" class="btn btn-outline-dark" style="font-size: .8rem; line-height: 1.6;">
+                            Fale Conosco
+                        </button>
+                    </div>
+                </div>
+                <div class="link-group">
+                    <h6>NEWSLETTER</h6>
+                    <p style="font-size: .8rem; line-height: 1.5">
+                        Assine nossa newsletter e fique por dentro de todas as
+                        <br /> novidades, lançamentos, promoções e muito mais.
+                    </p>
+                    <div class="input-group w-100 flex-row align-items-center justify-content-center"
+                         style="height:40px">
+                        <input type="email" class="form-control border-0"
+                               style="font-size: .8rem; line-height: 1; height:40px" placeholder="Digite seu email" />
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-light" type="button">Enviar</button>
+                        </div>
+                    </div>
+                    <div class="navbar-nav mt-3 ">
+                        <h6>Siga as nossas Redes Sociais:</h6>
+                        <div class="icons w100">
+                            <a href="#" style="font-size: 1.5rem; color: #545454; text-decoration: none;"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" style="font-size: 1.5rem; color: #545454; text-decoration: none; margin: 0 20px;"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="#" style="font-size: 1.5rem; color: #545454; text-decoration: none;"><i class="fa-brands fa-twitter"></i></a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="container">
+                Show de Ferramentas LTDA - CNPJ 12.345.678/0001-99 &copy; Todos os direitos reservados. 2022
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+            integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+            integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+
+</html>

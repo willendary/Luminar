@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ToolsMarket.App.ViewModels.ProdutoViewModel>
+
+@{
+    ViewData["Title"] = "Acessórios -";
+}
+
+<div class="container manuais">
+    <h3 class="text-center mb-4">Acessórios</h3>
+    <div class="card-group">
+        @foreach (var item in Model)
+        {
+            <div class="card">
+                <div class="card-img-top">
+                    <a href="@Url.Action("Details", "Produtos", new { id=item.Id })"> <img src="~/images/produtos/@item.Imagem" alt="@item.Imagem" /></a>
+                </div>
+                <a href="@Url.Action("Details", "Produtos", new { id=item.Id })">
+                    <div class="card-title">
+                        <h6 class="product-name">@item.Nome</h6>
+                    </div>
+                    <div class="card-preco">
+                        <p class="produto-preco">@item.ValorUnitario.ToString("C")</p>
+                    </div>
+                    <div class="card-forma-pgt">
+                        <p class="forma-pgt">ou <strong>@item.QuantidadeParcelas x</strong> de <strong>@item.ValorParcela.ToString("C")</strong> sem Juros</p>
+                    </div>
+                </a>
+                <div class="card-action">
+                    <form method="post">
+                        <input type="hidden" value="@item.Id" name="id" />
+                        <input class="qtd" type="text" name="qtd" value="1" placeholder="1" />
+                        <button type="submit" asp-action="Adicionar" asp-controller="Pedidos" class="btn">Adicionar ao Carrinho</button>
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+</div>
